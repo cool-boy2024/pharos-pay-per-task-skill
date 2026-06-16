@@ -1,0 +1,22 @@
+# Foundry
+out/
+cache/
+broadcast/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Node (if examples grow)
+node_modules/
+
+# Local deployment artifacts
+deployments.local.json
