@@ -133,6 +133,7 @@ pharos-pay-per-task-skill/
 ├── README.md                         ← human-facing project README
 ├── SUBMISSION.md                     ← hackathon submission map
 ├── .env.example                      ← copy to .env, fill in PRIVATE_KEY
+├── .gitmodules                       ← registers lib/forge-std as a submodule
 ├── foundry.toml
 ├── assets/
 │   ├── networks.json                 ← RPC, chain id, explorer, faucet

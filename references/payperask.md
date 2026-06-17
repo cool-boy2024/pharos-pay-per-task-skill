@@ -394,6 +394,13 @@ cast send <escrow_address> \
 > **Agent Guidelines**: This is the safety valve for the pull-payment design.
 > Surface to the user that funds are NOT lost; they are sitting in
 > `pendingWithdrawals` and any caller can push them to the recipient.
+>
+> **Note on multisig recipients**: `_send` forwards a bounded `50_000` gas
+> budget. EOAs and trivial `receive()` hooks are within this limit; Gnosis
+> Safe / multisig proxies typically burn 30–40K and may exceed it on certain
+> code paths. When that happens the share is credited to `pendingWithdrawals`
+> and a `PaymentDeferred` event fires — this is by design, not a failure.
+> The recipient (or anyone) calls `withdraw(<recipient>)` afterwards.
 
 ---
 

@@ -89,6 +89,7 @@ pharos-pay-per-task-skill/
 ├── README.md                         ← this file
 ├── SUBMISSION.md                     ← hackathon submission map
 ├── .env.example                      ← copy to .env, fill in PRIVATE_KEY
+├── .gitmodules                       ← registers lib/forge-std as a submodule
 ├── foundry.toml
 ├── assets/
 │   ├── networks.json                 ← Pharos Atlantic testnet config
