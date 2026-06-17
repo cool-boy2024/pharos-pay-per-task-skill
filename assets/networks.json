@@ -5,6 +5,7 @@
     "rpcUrl": "https://atlantic.dplabs-internal.com",
     "wsUrl": "wss://atlantic.dplabs-internal.com",
     "explorer": "https://atlantic.pharosscan.xyz",
+    "faucet": "https://testnet.pharosnetwork.xyz/",
     "verifierUrl": "https://api.socialscan.io/pharos-atlantic-testnet/v1/explorer/command_api/contract",
     "verifier": "blockscout",
     "nativeToken": {
@@ -13,16 +14,5 @@
     },
     "rateLimit": "500/5min",
     "maxPendingTxsPerAddr": 64
-  },
-  "pacific-mainnet": {
-    "name": "Pharos Pacific Mainnet",
-    "chainId": null,
-    "rpcUrl": null,
-    "explorer": null,
-    "nativeToken": {
-      "symbol": "PHRS",
-      "decimals": 18
-    },
-    "note": "Mainnet endpoints — see https://docs.pharos.xyz/getting-started/network/pacific-mainnet"
   }
 }

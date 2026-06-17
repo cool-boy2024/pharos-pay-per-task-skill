@@ -1,12 +1,14 @@
+# .gitignore — Foundry + envs
+
 # Foundry
 out/
 cache/
 broadcast/
 
-# Env
+# Env (matches every shape: .env, .env.local, .env.testnet, .env.production…)
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
 
 # OS
 .DS_Store
@@ -17,6 +19,7 @@ broadcast/
 
 # Node (if examples grow)
 node_modules/
+package-lock.json
 
 # Local deployment artifacts
 deployments.local.json
