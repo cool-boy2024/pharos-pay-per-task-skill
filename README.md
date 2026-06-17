@@ -52,16 +52,22 @@ pharos-pay-per-task-skill/
 ## Quick start (for humans)
 
 ```bash
-# 1. Install Foundry
+# 1. Clone with submodules (forge-std lives in lib/)
+git clone --recurse-submodules https://github.com/cool-boy2024/pharos-pay-per-task-skill
+cd pharos-pay-per-task-skill
+# (already cloned without submodules? run: git submodule update --init --recursive)
+
+# 2. Install Foundry
 curl -L https://foundry.paradigm.xyz | bash && source ~/.zshenv && foundryup
 
-# 2. Configure
+# 3. Configure
 export PRIVATE_KEY=0xYourTestnetKey
 export RPC=https://atlantic.dplabs-internal.com
 
-# 3. Get testnet PHRS (see Pharos faucet)
+# 4. Get testnet PHRS (see Pharos faucet)
 
-# 4. Run the end-to-end demo
+# 5. Build + run the end-to-end demo
+forge build
 bash examples/basic-agent-using-skill.sh
 ```
 

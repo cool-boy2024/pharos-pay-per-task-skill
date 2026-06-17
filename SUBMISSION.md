@@ -104,7 +104,7 @@ The repo ships a runnable end-to-end demo. Once the user has Foundry + a
 funded testnet wallet:
 
 ```bash
-git clone https://github.com/cool-boy2024/pharos-pay-per-task-skill
+git clone --recurse-submodules https://github.com/cool-boy2024/pharos-pay-per-task-skill
 cd pharos-pay-per-task-skill
 curl -L https://foundry.paradigm.xyz | bash && foundryup
 
@@ -112,6 +112,7 @@ export PRIVATE_KEY=0xYourTestnetKey
 export RPC=https://atlantic.dplabs-internal.com
 
 # Get testnet PHRS first, then:
+forge build
 bash examples/basic-agent-using-skill.sh
 ```
 

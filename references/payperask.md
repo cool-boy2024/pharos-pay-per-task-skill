@@ -265,7 +265,7 @@ cast send <escrow_address> \
 |---------------------------------------------|----------------------------------------------|----------------------------------------------|
 | `execution reverted: InvalidStatus`         | Order not in `Created` status                | Cannot dispute completed/refunded orders     |
 | `execution reverted: NotAuthorized`         | Caller is not the buyer                      | Use buyer's `$PRIVATE_KEY`                   |
-| `execution reverted: DisputeWindowClosed`   | More than 7 days since `createdAt`           | Window expired — order will auto-complete    |
+| `execution reverted: DisputeWindowClosed`   | More than 7 days since `createdAt`           | Window expired — buyer can no longer dispute; only the agent or admin can settle (`completeOrder`) or refund |
 
 > **Agent Guidelines**:
 > 1. Read `getOrder(orderId).createdAt` and confirm `block.timestamp - createdAt < 7 days`.

@@ -28,12 +28,15 @@ echo
 
 # ── 1. Deploy ──────────────────────────────────────────────────────────
 echo "▸ Deploying PayPerTaskEscrow…"
-DEPLOY_OUT=$(forge script script/DeployPayPerTaskEscrow.s.sol:DeployPayPerTaskEscrow \
-  --rpc-url "$RPC" --private-key "$PRIVATE_KEY" --broadcast --silent --json 2>&1 || true)
-ESCROW=$(echo "$DEPLOY_OUT" | grep -oE '0x[a-fA-F0-9]{40}' | tail -1)
-if [ -z "$ESCROW" ]; then
-  echo "✗ Deploy failed. Raw output:"
-  echo "$DEPLOY_OUT"
+forge script script/DeployPayPerTaskEscrow.s.sol:DeployPayPerTaskEscrow \
+  --rpc-url "$RPC" --private-key "$PRIVATE_KEY" --broadcast
+
+# Authoritative source: Foundry's broadcast manifest. Pharos Atlantic = chainId 688689.
+CHAIN_ID=$(cast chain-id --rpc-url "$RPC")
+RUN_LATEST="broadcast/DeployPayPerTaskEscrow.s.sol/${CHAIN_ID}/run-latest.json"
+ESCROW=$(jq -r '.transactions[] | select(.transactionType=="CREATE") | .contractAddress' "$RUN_LATEST" | head -1)
+if [ -z "$ESCROW" ] || [ "$ESCROW" = "null" ]; then
+  echo "✗ Deploy failed. See $RUN_LATEST"
   exit 1
 fi
 echo "✓ Deployed at: $ESCROW"
